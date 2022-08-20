@@ -3,7 +3,7 @@
 # Table name: places
 #
 #  id         :bigint           not null, primary key
-#  coordinate :geography        point, 4326
+#  coordinate :geography        not null, point, 4326
 #  locale     :string           not null
 #  name       :string           not null
 #  place_type :string           not null
@@ -17,4 +17,10 @@
 #  index_places_on_locale_and_coordinate  (locale,coordinate) UNIQUE
 #
 class Place < ApplicationRecord
+  PLACE_TYPES = %w[restaurant coffee_shop mall hotel other].freeze
+
+  validates :place_type, inclusion: { in: PLACE_TYPES }
+  validates :coordinate, presence: true
+  validates :locale, presence: true
+  validates :name, presence: true
 end

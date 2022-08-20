@@ -3,7 +3,7 @@
 # Table name: places
 #
 #  id         :bigint           not null, primary key
-#  coordinate :geography        point, 4326
+#  coordinate :geography        not null, point, 4326
 #  locale     :string           not null
 #  name       :string           not null
 #  place_type :string           not null

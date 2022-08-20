@@ -3,7 +3,7 @@
 # Table name: places
 #
 #  id         :bigint           not null, primary key
-#  coordinate :geography        point, 4326
+#  coordinate :geography        not null, point, 4326
 #  locale     :string           not null
 #  name       :string           not null
 #  place_type :string           not null
@@ -18,9 +18,9 @@
 #
 FactoryBot.define do
   factory :place do
-    locale { "MyString" }
-    coordinate { "" }
-    name { "MyString" }
-    place_type { "MyString" }
+    locale { 'en' }
+    coordinate { 'POINT (1 2 3)' }
+    name { ['La Fantasia', 'AirCoffee'].sample }
+    place_type { 'coffee_shop' }
   end
 end

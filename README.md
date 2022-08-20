@@ -41,3 +41,26 @@ rails g migration AddPostgisExtensionToDatabase
 rails g model place locale coordinate:st_point name place_type
 rails g model sight place:references activity_type
 ```
+
+## Testing
+
+Good test suite
+- Fast
+- Independent
+- Repeatable
+- Self-validating
+- Timely
+
+```
+bundle exec rspec
+```
+
+## Seed
+
+```
+rails db:seed:replant
+```
+
+## Enum
+
+That is the definition in rails not ruby.

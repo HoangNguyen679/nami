@@ -17,4 +17,46 @@
 #  index_users_on_username  (username) UNIQUE
 #
 class User < ApplicationRecord
+  validates :email, format: {
+    with: URI::MailTo::EMAIL_REGEXP,
+    message: 'must be a valid email address'
+  }
+  validates :username, uniqueness: true
+  validates :first_name, presence: true
+
+  has_many :posts
+
+  has_many :bonds
+
+  has_many :followings,
+           -> { where(bonds: { state: Bond::FOLLOWING }) },
+           through: :bonds,
+           source: :friend
+
+  has_many :follow_requests,
+           -> { where(bonds: { state: Bond::REQUESTING }) },
+           through: :bonds,
+           source: :friend
+
+  has_many :inward_bonds,
+           class_name: 'Bond',
+           foreign_key: :friend_id
+
+  has_many :followers,
+           -> { where(bonds: { state: Bond::FOLLOWING }) },
+           through: :inward_bonds,
+           source: :user
+
+  before_save :ensure_proper_name_case
+
+  def gravatar_url
+    hash = Digest::MD5.hexdigest(email)
+    "https://www.gravatar.com/avatar/#{hash}?d=wavatar"
+  end
+
+  private
+
+  def ensure_proper_name_case
+    self.first_name = first_name.capitalize
+  end
 end

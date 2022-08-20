@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_20_041053) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_20_145829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_041053) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "friend_id"], name: "index_bonds_on_user_id_and_friend_id", unique: true
+    t.check_constraint "state::text = ANY (ARRAY['requesting'::character varying, 'following'::character varying, 'blocking'::character varying]::text[])", name: "allowed_state"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -33,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_041053) do
 
   create_table "places", force: :cascade do |t|
     t.string "locale", null: false
-    t.geography "coordinate", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.geography "coordinate", limit: {:srid=>4326, :type=>"st_point", :has_z=>true, :geographic=>true}, null: false
     t.string "name", null: false
     t.string "place_type", null: false
     t.datetime "created_at", null: false
