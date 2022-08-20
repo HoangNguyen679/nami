@@ -64,3 +64,12 @@ rails db:seed:replant
 ## Enum
 
 That is the definition in rails not ruby.
+
+## Session and Authentication
+
+### Tailwindcss
+
+```
+bundle add tailwindcss-rails
+rails tailwindcss:install
+```
