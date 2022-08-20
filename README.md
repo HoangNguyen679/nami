@@ -74,6 +74,22 @@ bundle add tailwindcss-rails
 rails tailwindcss:install
 ```
 
+```
+npm install -D postcss-import
+```
+
+postcss.config.js
+```
+module.exports = {
+  plugins: {
+    "postcss-import": {},
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+
+```
+
 ### Devise
 
 ```
