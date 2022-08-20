@@ -54,6 +54,9 @@ GEM
     activerecord (7.0.3.1)
       activemodel (= 7.0.3.1)
       activesupport (= 7.0.3.1)
+    activerecord-postgis-adapter (8.0.1)
+      activerecord (~> 7.0.0)
+      rgeo-activerecord (~> 7.0.0)
     activestorage (7.0.3.1)
       actionpack (= 7.0.3.1)
       activejob (= 7.0.3.1)
@@ -163,6 +166,10 @@ GEM
     redis (4.7.1)
     reline (0.3.1)
       io-console (~> 0.5)
+    rgeo (2.4.0)
+    rgeo-activerecord (7.0.1)
+      activerecord (>= 5.0)
+      rgeo (>= 1.0.0)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-expectations (3.11.0)
@@ -212,6 +219,7 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  activerecord-postgis-adapter (~> 8.0.1)
   annotate (~> 3.2.0)
   bootsnap
   debug
