@@ -73,3 +73,20 @@ That is the definition in rails not ruby.
 bundle add tailwindcss-rails
 rails tailwindcss:install
 ```
+
+### Devise
+
+```
+bundle add devise
+rails g devise:install
+```
+
+```
+rails g controller home index
+```
+
+```
+rails g devise:views
+rails g devise user0820170835_add_devise_to_users.rb
+rails db:migrate
+```
