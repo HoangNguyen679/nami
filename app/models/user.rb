@@ -24,8 +24,16 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         authentication_keys: [:login_identify],
+         reset_password_keys: [:login_identify]
+
+  attr_writer :login_identify
+
   validates :email, format: {
     with: URI::MailTo::EMAIL_REGEXP,
     message: 'must be a valid email address'
@@ -58,9 +66,23 @@ class User < ApplicationRecord
 
   before_save :ensure_proper_name_case
 
+  def login_identify
+    @login_identify || username || email
+  end
+
   def gravatar_url
     hash = Digest::MD5.hexdigest(email)
     "https://www.gravatar.com/avatar/#{hash}?d=wavatar"
+  end
+
+  def self.find_authenticatable(login_identify)
+    where('username = :value OR email = :value', value: login_identify).first
+  end
+
+  def self.find_for_database_authentication(conditions)
+    conditions = conditions.dup
+    login_identify = conditions.delete(:login_identify).downcase
+    find_authenticatable(login_identify)
   end
 
   private
