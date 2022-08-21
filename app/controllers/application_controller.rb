@@ -6,14 +6,17 @@ class ApplicationController < ActionController::Base
   protected
 
   def config_devise_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [
-      :first_name,
-      :last_name,
-      :username,
-      :email,
-      :password,
-      :password_confirmation
-    ])
+    devise_parameter_sanitizer.permit(
+      :sign_up,
+      keys: %i[
+        first_name
+        last_name
+        username
+        email
+        password
+        password_confirmation
+      ]
+    )
   end
 
   private
