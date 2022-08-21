@@ -106,3 +106,19 @@ rails g devise:views
 rails g devise user0820170835_add_devise_to_users.rb
 rails db:migrate
 ```
+
+Need to fix [turbo rails 7 problem](https://github.com/heartcombo/devise/issues/5446)
+
+### Forgot password
+
+```
+bundle add letter_opener_web
+```
+
+[Devise Tut](https://github.com/heartcombo/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address)
+- If using username and email in sign in -> find_for_database_authentication
+- If using email in sign in and forget password -> find_first_by_auth_conditions
+
+### Sign out
+
+[Using button_to instead of link_to](https://github.com/heartcombo/devise/issues/4570#issuecomment-740812109)

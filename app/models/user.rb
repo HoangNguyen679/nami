@@ -29,10 +29,10 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable,
-         authentication_keys: [:login_identify],
-         reset_password_keys: [:login_identify]
+         authentication_keys: [:login],
+         reset_password_keys: [:login]
 
-  attr_writer :login_identify
+  attr_writer :login
 
   validates :email, format: {
     with: URI::MailTo::EMAIL_REGEXP,
@@ -66,8 +66,20 @@ class User < ApplicationRecord
 
   before_save :ensure_proper_name_case
 
-  def login_identify
-    @login_identify || username || email
+  def login
+    @login || username || email
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if (login = conditions.delete(:login))
+      where(conditions.to_h)
+        .where(['username = :value OR lower(email) = lower(:value)', { value: login }])
+        .first
+    elsif conditions.key?(:username) || conditions.key?(:email)
+      conditions[:email]&.downcase!
+      where(conditions.to_h).first
+    end
   end
 
   def gravatar_url
@@ -75,14 +87,21 @@ class User < ApplicationRecord
     "https://www.gravatar.com/avatar/#{hash}?d=wavatar"
   end
 
-  def self.find_authenticatable(login_identify)
-    where('username = :value OR email = :value', value: login_identify).first
+  def self.find_authenticatable(login)
+    where("username = :value OR email = :value", value: login).first
   end
 
-  def self.find_for_database_authentication(conditions)
+  def self.find_recoverable_or_init_with_errors(conditions)
     conditions = conditions.dup
-    login_identify = conditions.delete(:login_identify).downcase
-    find_authenticatable(login_identify)
+    login = conditions.delete(:login).downcase
+    recoverable = find_authenticatable(login)
+
+    unless recoverable
+      recoverable = new(login: login)
+      recoverable.errors.add(:login, login.present? ? :not_found : :blank)
+    end
+
+    recoverable
   end
 
   private

@@ -3,4 +3,5 @@
 @import "tailwindcss/utilities";
 
 @import "./common.css";
+@import "./home.css";
 @import "./session.css";

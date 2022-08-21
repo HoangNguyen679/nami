@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
         password_confirmation
       ]
     )
+
+    devise_parameter_sanitizer.permit :sign_in, keys: %i[login password]
   end
 
   private
