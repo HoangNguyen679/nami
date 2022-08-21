@@ -122,3 +122,9 @@ bundle add letter_opener_web
 ### Sign out
 
 [Using button_to instead of link_to](https://github.com/heartcombo/devise/issues/4570#issuecomment-740812109)
+
+### Mail Decorate
+
+```
+bundle add premailer-rails
+```

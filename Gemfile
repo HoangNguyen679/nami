@@ -82,3 +82,5 @@ gem 'devise', '~> 4.8'
 gem 'letter_opener_web', '~> 2.0'
 
 gem "evil_icons", "~> 1.10"
+
+gem "premailer-rails", "~> 1.11"
