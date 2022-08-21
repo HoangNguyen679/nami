@@ -23,7 +23,19 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def member_controller?
+    return false if controller_path == 'home'
+
+    true
+  end
+
   def layout_by_resource
-    devise_controller? ? 'session' : 'application'
+    if devise_controller?
+      'session'
+    elsif member_controller?
+      'member'
+    else
+      'application'
+    end
   end
 end
