@@ -66,9 +66,21 @@ group :development do
 
   gem 'annotate', '~> 3.2.0'
 
+  gem 'pry', '~> 0.14.1'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+gem 'tailwindcss-rails', '~> 2.0'
+
+gem 'devise', '~> 4.8'
+
+gem 'letter_opener_web', '~> 2.0'
+
+gem "evil_icons", "~> 1.10"
+
+gem "premailer-rails", "~> 1.11"

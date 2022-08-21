@@ -11,6 +11,9 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Enabled: false
 
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
