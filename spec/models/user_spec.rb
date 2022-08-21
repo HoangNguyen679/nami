@@ -127,13 +127,15 @@ RSpec.describe User, type: :model do
         user = User.create(
           email: 'e1@example.org',
           first_name: 'Edwin',
-          username: 'e1'
+          username: 'e1',
+          password: 'password_e1',
         )
 
         friend = User.create(
           email: 'a1@example.org',
           first_name: 'Adam',
-          username: 'a1'
+          username: 'a1',
+          password: 'password_a1',
         )
 
         bond = Bond.new(user:, friend:, state: Bond::REQUESTING)
