@@ -128,3 +128,9 @@ bundle add letter_opener_web
 ```
 bundle add premailer-rails
 ```
+
+### Build timeline
+
+```
+rails g controller Timelines index show --no-test-framework --no-assets
+```
