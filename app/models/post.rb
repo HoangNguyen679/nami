@@ -20,9 +20,20 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Post < ApplicationRecord
+  attr_accessor :status_text
+
   belongs_to :postable, polymorphic: true
   belongs_to :user
   belongs_to :thread, class_name: 'Post', optional: true
 
+  has_many :replies, class_name: 'Post', foreign_key: :thread_id
+
   has_many :pictures
+
+  scope :not_reply, -> { where(thread_id: nil) }
+
+  scope :written_by, lambda { |username|
+    poster = User.find_by(username:)
+    where(user: poster)
+  }
 end

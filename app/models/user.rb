@@ -66,6 +66,10 @@ class User < ApplicationRecord
 
   before_save :ensure_proper_name_case
 
+  def to_param
+    username
+  end
+
   def login
     @login || username || email
   end
@@ -82,13 +86,8 @@ class User < ApplicationRecord
     end
   end
 
-  def gravatar_url
-    hash = Digest::MD5.hexdigest(email)
-    "https://www.gravatar.com/avatar/#{hash}?d=wavatar"
-  end
-
   def self.find_authenticatable(login)
-    where("username = :value OR email = :value", value: login).first
+    where('username = :value OR email = :value', value: login).first
   end
 
   def self.find_recoverable_or_init_with_errors(conditions)
@@ -97,7 +96,7 @@ class User < ApplicationRecord
     recoverable = find_authenticatable(login)
 
     unless recoverable
-      recoverable = new(login: login)
+      recoverable = new(login:)
       recoverable.errors.add(:login, login.present? ? :not_found : :blank)
     end
 
