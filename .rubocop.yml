@@ -17,9 +17,6 @@ Style/TrailingCommaInArguments:
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 RSpec/DescribedClass:
   EnforcedStyle: explicit
 
