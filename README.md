@@ -134,3 +134,10 @@ bundle add premailer-rails
 ```
 rails g controller Timelines index show --no-test-framework --no-assets
 ```
+
+### Active Storage
+
+```
+rails active_storage:install
+rails db:migrate
+```
