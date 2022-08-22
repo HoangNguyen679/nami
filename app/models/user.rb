@@ -70,14 +70,6 @@ class User < ApplicationRecord
     username
   end
 
-  def name
-    if last_name
-      "#{first_name} #{last_name}"
-    else
-      first_name
-    end
-  end
-
   def login
     @login || username || email
   end
@@ -91,13 +83,6 @@ class User < ApplicationRecord
     elsif conditions.key?(:username) || conditions.key?(:email)
       conditions[:email]&.downcase!
       where(conditions.to_h).first
-    end
-  end
-
-  def profile_picture_url
-    @profile_picture_url ||= begin
-      hash = Digest::MD5.hexdigest(email)
-      "https://www.gravatar.com/avatar/#{hash}?d=wavatar"
     end
   end
 
