@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(
       :postable_type,
       :status_text,
+      :thread_id,
     )
   end
 end
