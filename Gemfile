@@ -52,8 +52,9 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  # gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2.0'
+  gem 'pry-byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 6.0.0.rc1'
   gem 'rubocop', '~> 1.35.0'
   gem 'rubocop-rails'
@@ -81,8 +82,8 @@ gem 'devise', '~> 4.8'
 
 gem 'letter_opener_web', '~> 2.0'
 
-gem "evil_icons", "~> 1.10"
+gem 'evil_icons', '~> 1.10'
 
-gem "premailer-rails", "~> 1.11"
+gem 'premailer-rails', '~> 1.11'
 
-gem "active_decorator", "~> 1.4"
+gem 'active_decorator', '~> 1.4'
