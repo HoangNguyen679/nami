@@ -31,6 +31,7 @@ class Post < ApplicationRecord
   has_many :pictures
 
   scope :not_reply, -> { where(thread_id: nil) }
+
   scope :written_by, lambda { |username|
     poster = User.find_by(username:)
     where(user: poster)
