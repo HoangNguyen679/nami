@@ -1,27 +1,14 @@
-window.toggleModal = (modalClass) => {
-  const modalIdentifier = `[data-modal-class=${modalClass}]`
-  const body = document.querySelector("body")
-  const modal = document.querySelector(modalIdentifier)
-
-  modal.classList.toggle("opacity-0")
-  modal.classList.toggle("pointer-events-none")
-  body.classList.toggle("modal-active")
-}
-
 window.closeAllModal = () => {
-  document.body.classList.remove("modal-active")
   document.querySelectorAll(".modal").forEach((modal) => {
-    if (!modal.classList.contains("opacity-0")) {
-      modal.classList.add("opacity-0")
-      modal.classList.add("pointer-events-none")
-    }
+    modal.style.display = "none"
   })
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", (e) => {
+    //  e.target will be the icon element
+    // and e.target.closest("[data-modal-class]") will get the modal class name
     if (e.target) {
-      var classes = e.target.classList
       const modalElm = e.target.closest("[data-modal-class]")
 
       if (!modalElm) {
@@ -30,19 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const modalClass = modalElm.getAttribute("data-modal-class")
 
-      if (classes.contains("js-modal-overlay")) {
-        e.preventDefault()
-        window.toggleModal(modalClass)
-      } else if (e.target.parentElement) {
+      if (e.target.parentElement) {
         var parentClasses = e.target.parentElement.classList
+        const modal = document.querySelector(`[data-modal-class=${modalClass}]`)
         if (parentClasses.contains("js-modal-close")) {
           e.preventDefault()
-          window.toggleModal(modalClass)
-          window.closeAllModal()
+          modal.style.display = "none"
         } else if (parentClasses.contains("js-modal-open")) {
           e.preventDefault()
-          window.closeAllModal()
-          window.toggleModal(modalClass)
+          modal.style.display = "block"
         }
       }
     }

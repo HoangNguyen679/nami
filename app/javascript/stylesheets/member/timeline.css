@@ -40,7 +40,7 @@
 }
 
 .body-member .timeline .line .identifier a {
-  @apply text-gray-100;
+  @apply;
 }
 
 .body-member .timeline .line .identifier a:hover .name {
