@@ -134,3 +134,26 @@ bundle add premailer-rails
 ```
 rails g controller Timelines index show --no-test-framework --no-assets
 ```
+
+### Active Storage
+
+```
+rails active_storage:install
+rails db:migrate
+```
+
+### S3 storage
+
+```
+bundle add aws-sdk-s3
+```
+
+### Web browser testing
+
+```
+bundle add launchy capybara apparition --g "test"
+```
+
+```
+save_and_open_screenshot
+```

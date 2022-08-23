@@ -76,6 +76,12 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  gem "launchy", "~> 2.5"
+  gem "capybara", "~> 3.37"
+  gem "apparition", "~> 0.6.0"
+end
+
 gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'devise', '~> 4.8'
@@ -87,3 +93,7 @@ gem 'evil_icons', '~> 1.10'
 gem 'premailer-rails', '~> 1.11'
 
 gem 'active_decorator', '~> 1.4'
+
+gem "aws-sdk-s3", "~> 1.114"
+
+
