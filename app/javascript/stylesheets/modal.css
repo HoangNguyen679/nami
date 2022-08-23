@@ -1,4 +1,4 @@
-body.modal-active {
+/* body.modal-active {
   @apply overflow-x-hidden;
   @apply overflow-y-visible !important;
 }
@@ -33,4 +33,4 @@ body.modal-active {
 }
 .modal .modal-container .title-bar .title {
   @apply text-2xl font-bold;
-}
+} */

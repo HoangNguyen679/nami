@@ -1,5 +1,5 @@
 <% method = local_assigns.fetch(:method, :get) %>
-<%= button_to link, class: "action", method: method do %>
-  <span class="mr-4"><%= caption %></span>
-  <%= evil_icon icon, size: :s, class: "arrow" %>
+<%= button_to link, class: "action-button", method: method do %>
+  <span class="button-name"><%= caption %></span>
+  <%= evil_icon icon, size: :s, class: "arrow-symbol" %>
 <% end %>

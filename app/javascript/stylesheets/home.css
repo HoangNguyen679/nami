@@ -1,36 +1,49 @@
-.home header {
-  @apply w-full p-2 flex items-center justify-between flex-wrap;
+.home {
+  @apply mx-auto;
 }
 
-.home header .title {
+.home .horizontal-line {
+  @apply h-1 bg-yellow-500;
+}
+
+.home .header {
+  @apply mx-auto flex justify-between p-2;
+}
+
+.home .header .name {
   @apply font-extrabold text-2xl;
 }
 
-.home .heading {
+.home .header .action-buttons {
+}
+
+.home .header .action-button {
+  @apply flex rounded-full py-2 px-6;
+  @apply items-center;
+  @apply bg-yellow-400;
+  @apply cursor-pointer;
+}
+
+.home .header .action-button .button-name {
+  @apply mr-4;
+}
+
+.home .header .action-button .arrow-symbol {
+  @apply rounded-full w-6 h-6;
+}
+
+.home .content {
+  @apply center;
+  @apply m-auto pt-16 pb-16;
+  @apply flex flex-col px-4;
+}
+
+.home .content .main {
   @apply font-semibold text-gray-900 text-4xl pt-8;
 }
 
-.home .actions {
-  @apply w-auto flex items-center justify-end;
-}
-
-.home .action {
-  @apply flex flex-row rounded-full py-2 pl-6 pr-2;
-  @apply bg-indigo-700 text-white shadow;
-  @apply items-center justify-center text-base;
-}
-
-.home .action .arrow {
-  @apply flex items-center justify-center;
-  @apply bg-teal-500 rounded-full w-6 h-6 text-xs;
-}
-
-.home .theatre {
-  @apply m-auto pt-8 pb-16;
-}
-
-.home .theatre .center {
-  @apply flex flex-col justify-center items-center text-center px-4;
+.home .content .invitation {
+  @apply text-gray-700 text-xl md:pb-4;
 }
 
 @screen md {
@@ -38,15 +51,15 @@
     @apply px-0;
   }
 
-  .home header .title {
+  .home .header .name {
     @apply text-4xl;
   }
 
-  .home .heading {
-    @apply pt-16 pb-2;
+  .home .content {
+    @apply pt-32 pb-32;
   }
 
-  .home .theatre {
-    @apply pt-32 pb-32;
+  .home .content .main {
+    @apply pt-16 pb-2;
   }
 }

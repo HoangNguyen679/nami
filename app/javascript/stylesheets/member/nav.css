@@ -1,4 +1,4 @@
-.body-member nav.topnav {
+/* .body-member nav.topnav {
   @apply flex flex-wrap items-center justify-between;
   @apply pl-6 pr-6 pt-1 pb-1;
   @apply bg-dark-700;
@@ -11,7 +11,6 @@
 
 .body-member a.linked-icon {
   @apply inline-block mt-0 mr-3 text-main-200;
-  /* @apply bg-blue-500; */
 }
 
 .body-member a.linked-icon:hover,
@@ -28,4 +27,4 @@ a.linked-icon.active {
 .body-member nav.topnav h1 {
   @apply border-dark-700 !important;
   border-bottom: 1px solid;
-}
+} */
