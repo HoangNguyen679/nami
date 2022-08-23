@@ -1,17 +1,13 @@
-/* .alert {
-  @apply text-white text-sm text-center font-medium px-4 py-3;
-}
-
 a {
-  @apply no-underline text-blue-400;
+  @apply no-underline;
 }
 
 a:hover {
-  @apply text-blue-500;
-} */
+  @apply text-blue-600;
+}
 
-a {
-  @apply no-underline;
+.alert {
+  @apply text-white text-sm text-center font-medium px-4 py-3;
 }
 
 .main-page-content {

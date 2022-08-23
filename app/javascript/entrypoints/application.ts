@@ -32,3 +32,5 @@ console.log(
 
 import "windi.css"
 import "~/stylesheets/application.css"
+
+import "~/custom/modal.js"

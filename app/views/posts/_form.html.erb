@@ -1,10 +1,10 @@
 <% form_id = "poster-#{SecureRandom.hex(3)}" %>
 <% thread = local_assigns[:thread] %>
-<div class="poster flex <%= "p-3" unless thread %>">
+<div class="poster">
   <%= form_with model: Post.new, multipart: true, id: form_id do |f| %>
     <%= f.hidden_field :postable_type, value:  "Status" %>
     <%= f.hidden_field :thread_id, value: thread&.id %>
-    <%= f.text_area :status_text, required: true, placeholder: "What's happening>" %>
+    <%= f.text_area :status_text, required: true, placeholder: "What's happening?" %>
     <div class="pictures">
       <div class="picture-cont template">
         <img class="picture">

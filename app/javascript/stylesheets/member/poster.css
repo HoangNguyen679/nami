@@ -1,43 +1,44 @@
-/* .body-member .poster {
-  @apply bg-dark-700;
+.body-member .container .poster {
+  @apply flex;
+  @apply w-150;
+  @apply mx-auto;
 }
 
-.body-member .poster form {
+.body-member .container .poster form {
   @apply w-full;
 }
 
-.body-member.dark .poster form textarea {
-  @apply bg-dark-700 w-full;
+.body-member .container .poster form textarea {
+  @apply mt-10;
+  @apply rounded;
+  @apply h-10;
+  @apply w-full;
   @apply resize-none;
   @apply outline-none;
 }
 
-.body-member .poster .submit-btn {
-  @apply rounded-full p-2 w-full float-right;
-  @apply bg-indigo-800 text-white shadow;
-  color: #828d9f;
-  cursor: pointer;
+.body-member .container .poster form textarea::placeholder {
+  @apply pl-10 pt-2;
 }
 
-@screen md {
-  .body-member .poster .submit-btn {
+.body-member .container .poster .submit-btn {
+  @apply rounded-full p-2 w-full float-right;
+  @apply bg-yellow-400 shadow;
+  @apply cursor-pointer;
+}
+
+@screen sm {
+  .body-member .container .poster .submit-btn {
     @apply w-16;
   }
 }
 
-.body-member .poster .submit-btn:hover {
-  @apply bg-indigo-700 text-white;
-}
-
-.body-member .poster form:focus-within > .submit-btn,
-.body-member .poster form:active > .submit-btn {
-  @apply bg-indigo-700 text-white;
-}
-
-.body-member .poster .controls {
+.body-member .container .poster .controls {
   @apply mt-2;
-  @apply flex flex-wrap items-center justify-between;
+  @apply flex flex-wrap justify-between;
 }
+
+/* Check later, havenot read clearly yet */
 
 .body-member .poster .controls .options {
   @apply block flex-grow flex items-center w-auto;
@@ -85,4 +86,4 @@
   @apply object-cover;
   height: 80px;
   width: 80px;
-} */
+}

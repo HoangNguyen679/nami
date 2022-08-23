@@ -1,18 +1,23 @@
-/* .body-session {
+.body-session {
   @apply bg-gray-100 font-sans h-screen w-screen;
 }
 
-.body-session h1.title {
-  @apply text-center text-4xl;
+.body-session .container {
+  @apply mx-auto h-full;
+  @apply w-84 md:w-96;
 }
 
-.body-session .container {
-  @apply mx-auto flex h-full items-center;
+.body-session .container h1.title {
+  @apply text-center text-4xl mb-6;
 }
 
 .body-session .form-group {
-  @apply border-t-8 bg-white rounded-lg shadow-lg;
+  @apply bg-white rounded-lg shadow-lg;
   @apply p-8 mb-6;
+}
+
+.body-session .form-group .line {
+  @apply mx-4 my-4;
 }
 
 .body-session .form-group label {
@@ -34,8 +39,12 @@
   @apply border-gray-300;
 }
 
+.body-session .form-group .login-button-content {
+  @apply flex items-center justify-between;
+}
+
 .body-session a {
-  @apply no-underline font-bold text-sm text-blue-400;
+  @apply font-bold text-sm text-blue-400;
 }
 
 .body-session a:hover {
@@ -43,10 +52,12 @@
 }
 
 .body-session .cta-btn {
+  @apply mx-4;
   @apply bg-sky-500;
   @apply select-none text-white font-bold;
   @apply rounded shadow;
   @apply py-2 px-4;
+  @apply cursor-pointer;
 }
 
 .body-session .cta-btn:hover {
@@ -65,4 +76,8 @@
 .body-session .error-box ul {
   @apply pl-4;
   list-style: disc;
-} */
+}
+
+.body-session .footer-content {
+  @apply text-center text-grey-500 text-sm;
+}

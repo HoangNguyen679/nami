@@ -1,11 +1,11 @@
 <nav class="topnav">
-  <div class="flex items-center flex-shrink-0">
+  <div class="name">
     <%= link_to timelines_path do %>
-      <h1>Nami</h1>
+      Nami
     <% end %>
   </div>
-  <div class="block flex-grow flex items-center w-auto">
-    <div class="text-sm flex-grow">
+  <div class="icon-list">
+    <div class="feeds">
       <%= link_to timelines_path, class: "linked-icon #{"active" if on_bunch?}" do %>
         <%= evil_icon "ei-timeline" %>
       <% end %>
