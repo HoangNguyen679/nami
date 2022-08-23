@@ -1,9 +1,11 @@
-import { Application } from "@hotwired/stimulus"
+//  Use Vite temporary comment these
 
-const application = Application.start()
+// import { Application } from "@hotwired/stimulus"
 
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
+// const application = Application.start()
 
-export { application }
+// // Configure Stimulus development experience
+// application.debug = false
+// window.Stimulus   = application
+
+// export { application }

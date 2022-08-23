@@ -1,7 +1,9 @@
-import { Controller } from "@hotwired/stimulus"
+//  Use Vite temporary comment these
 
-export default class extends Controller {
-  connect() {
-    this.element.textContent = "Hello World!"
-  }
-}
+// import { Controller } from "@hotwired/stimulus"
+
+// export default class extends Controller {
+//   connect() {
+//     this.element.textContent = "Hello World!"
+//   }
+// }
