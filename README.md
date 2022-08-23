@@ -170,3 +170,9 @@ save_and_open_screenshot
 bundle add vite_rails
 bundle exec vite install
 ```
+
+### Windicss
+
+```
+npm i -D vite-plugin-windicss windicss
+```
