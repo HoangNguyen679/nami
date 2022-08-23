@@ -29,7 +29,7 @@ describe Post::Creator do
       end
     end
 
-    context 'when the user is not know' do
+    context 'when the user is not known' do
       let(:user) { nil }
 
       it 'cannot be posted' do
@@ -41,7 +41,7 @@ describe Post::Creator do
       let(:status_text) { '' }
 
       it 'cannot be posted' do
-        expect(subject).to be_falsey
+        expect(subject.call).to be_falsey
       end
     end
 
@@ -49,7 +49,7 @@ describe Post::Creator do
       let(:postable_type) { '' }
 
       it 'cannot be posted' do
-        expect(subject).to be_falsey
+        expect(subject.call).to be_falsey
       end
     end
 

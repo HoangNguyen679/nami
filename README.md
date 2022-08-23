@@ -147,3 +147,13 @@ rails db:migrate
 ```
 bundle add aws-sdk-s3
 ```
+
+### Web browser testing
+
+```
+bundle add launchy capybara apparition --g "test"
+```
+
+```
+save_and_open_screenshot
+```
