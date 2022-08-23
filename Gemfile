@@ -17,14 +17,19 @@ gem 'activerecord-postgis-adapter', '~> 8.0.1'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
+# Use Vite so comment these gems
+# -------------------------------------------------------------------------------------------------------------
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem 'importmap-rails'
+# gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'turbo-rails'
+# gem 'turbo-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem 'stimulus-rails'
+# gem 'stimulus-rails'
+
+# gem 'tailwindcss-rails', '~> 2.0'
+# -------------------------------------------------------------------------------------------------------------
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
@@ -82,8 +87,6 @@ group :test do
   gem "apparition", "~> 0.6.0"
 end
 
-gem 'tailwindcss-rails', '~> 2.0'
-
 gem 'devise', '~> 4.8'
 
 gem 'letter_opener_web', '~> 2.0'
@@ -96,4 +99,4 @@ gem 'active_decorator', '~> 1.4'
 
 gem "aws-sdk-s3", "~> 1.114"
 
-
+gem "vite_rails", "~> 3.0"

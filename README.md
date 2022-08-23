@@ -157,3 +157,16 @@ bundle add launchy capybara apparition --g "test"
 ```
 save_and_open_screenshot
 ```
+
+### Integrate Vuejs
+
+```
+./bin/importmap pin vue@next
+```
+
+### Integrate Vite
+
+```
+bundle add vite_rails
+bundle exec vite install
+```
