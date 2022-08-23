@@ -141,3 +141,9 @@ rails g controller Timelines index show --no-test-framework --no-assets
 rails active_storage:install
 rails db:migrate
 ```
+
+### S3 storage
+
+```
+bundle add aws-sdk-s3
+```

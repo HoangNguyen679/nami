@@ -87,3 +87,5 @@ gem 'evil_icons', '~> 1.10'
 gem 'premailer-rails', '~> 1.11'
 
 gem 'active_decorator', '~> 1.4'
+
+gem "aws-sdk-s3", "~> 1.114"
